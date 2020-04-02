@@ -229,15 +229,10 @@ Separar declações de variáveis, métodos, construtores, destrutores e proprie
 
 ## TODO <a name="todo"></a>
 + Documentação
-  - Imagem de Sitemap
-  - Imagem de workgroup
   - Forma de Uso
   - Colocar algoritmos no TODO
-  - Árvore do Projeto
 
 + Estrutura básica do código
-  - Interface *ISort*
-  - Estruturação/Criação dos pacotes
 
 + Algoritmos
   - Bubble Sort
