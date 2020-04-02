@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8AEB1A51-27B1-4603-84BD-F8B1A3230ADC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="SortInterfaces.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="BubbleSort.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="InsertionSort.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SelectionSort.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CombSort.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Sorting.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SortInterfaces">
+        <MSBuild Projects="SortInterfaces.dproj"/>
+    </Target>
+    <Target Name="SortInterfaces:Clean">
+        <MSBuild Projects="SortInterfaces.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SortInterfaces:Make">
+        <MSBuild Projects="SortInterfaces.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BubbleSort">
+        <MSBuild Projects="BubbleSort.dproj"/>
+    </Target>
+    <Target Name="BubbleSort:Clean">
+        <MSBuild Projects="BubbleSort.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BubbleSort:Make">
+        <MSBuild Projects="BubbleSort.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="InsertionSort">
+        <MSBuild Projects="InsertionSort.dproj"/>
+    </Target>
+    <Target Name="InsertionSort:Clean">
+        <MSBuild Projects="InsertionSort.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="InsertionSort:Make">
+        <MSBuild Projects="InsertionSort.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SelectionSort">
+        <MSBuild Projects="SelectionSort.dproj"/>
+    </Target>
+    <Target Name="SelectionSort:Clean">
+        <MSBuild Projects="SelectionSort.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SelectionSort:Make">
+        <MSBuild Projects="SelectionSort.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CombSort">
+        <MSBuild Projects="CombSort.dproj"/>
+    </Target>
+    <Target Name="CombSort:Clean">
+        <MSBuild Projects="CombSort.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CombSort:Make">
+        <MSBuild Projects="CombSort.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Sorting">
+        <MSBuild Projects="Sorting.dproj"/>
+    </Target>
+    <Target Name="Sorting:Clean">
+        <MSBuild Projects="Sorting.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Sorting:Make">
+        <MSBuild Projects="Sorting.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SortInterfaces;BubbleSort;InsertionSort;SelectionSort;CombSort;Sorting"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SortInterfaces:Clean;BubbleSort:Clean;InsertionSort:Clean;SelectionSort:Clean;CombSort:Clean;Sorting:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SortInterfaces:Make;BubbleSort:Make;InsertionSort:Make;SelectionSort:Make;CombSort:Make;Sorting:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -6,28 +6,28 @@
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2020)
 ![Build](https://img.shields.io/badge/Build-1.0.0.0-brightgreen) 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/bomrafinha/Ordenacao)
-![GitHub Release Date](https://img.shields.io/github/release-date/bomrafinha/Ordenacao)
-![Github repo age](https://img.shields.io/github/issues/detail/age/bomrafinha/Ordenacao/1.svg?style=flat-square)
-![Github author](https://img.shields.io/github/issues/detail/u/bomrafinha/Ordenacao/1.svg?style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bomrafinha/SortingAlgorithms)
+![GitHub Release Date](https://img.shields.io/github/release-date/bomrafinha/SortingAlgorithms)
+![Github repo age](https://img.shields.io/github/issues/detail/age/bomrafinha/SortingAlgorithms/1.svg?style=flat-square)
+![Github author](https://img.shields.io/github/issues/detail/u/bomrafinha/SortingAlgorithms/1.svg?style=flat-square)
 
-![GitHub contributors](https://img.shields.io/github/contributors/bomrafinha/Ordenacao)
-![GitHub last commit](https://img.shields.io/github/last-commit/bomrafinha/Ordenacao)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/y/bomrafinha/Ordenacao.svg?style=flat-square)
+![GitHub contributors](https://img.shields.io/github/contributors/bomrafinha/SortingAlgorithms)
+![GitHub last commit](https://img.shields.io/github/last-commit/bomrafinha/SortingAlgorithms)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/bomrafinha/SortingAlgorithms.svg?style=flat-square)
 
-![GitHub issues](https://img.shields.io/github/issues/bomrafinha/Ordenacao)
-![GitHub closed issues](https://img.shields.io/github/issues-closed/bomrafinha/Ordenacao)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/bomrafinha/Ordenacao)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/bomrafinha/Ordenacao)
-![GitHub forks](https://img.shields.io/github/forks/bomrafinha/Ordenacao)
-![GitHub stars](https://img.shields.io/github/stars/bomrafinha/Ordenacao)
-![GitHub All Releases](https://img.shields.io/github/downloads/bomrafinha/Ordenacao/total)
+![GitHub issues](https://img.shields.io/github/issues/bomrafinha/SortingAlgorithms)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/bomrafinha/SortingAlgorithms)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/bomrafinha/SortingAlgorithms)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/bomrafinha/SortingAlgorithms)
+![GitHub forks](https://img.shields.io/github/forks/bomrafinha/SortingAlgorithms)
+![GitHub stars](https://img.shields.io/github/stars/bomrafinha/SortingAlgorithms)
+![GitHub All Releases](https://img.shields.io/github/downloads/bomrafinha/SortingAlgorithms/total)
 
-![GitHub top language](https://img.shields.io/github/languages/top/bomrafinha/Ordenacao)
-![GitHub language count](https://img.shields.io/github/languages/count/bomrafinha/Ordenacao)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/bomrafinha/Ordenacao)
+![GitHub top language](https://img.shields.io/github/languages/top/bomrafinha/SortingAlgorithms)
+![GitHub language count](https://img.shields.io/github/languages/count/bomrafinha/SortingAlgorithms)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/bomrafinha/SortingAlgorithms)
 
-![GitHub](https://img.shields.io/github/license/bomrafinha/Ordenacao)
+![GitHub](https://img.shields.io/github/license/bomrafinha/SortingAlgorithms)
 
 <br />
 
@@ -53,7 +53,7 @@
 
 <br />
  
-## [Sitemap](https://coggle.it) <a name="sitemap"></a>   
+## [Sitemap](https://coggle.it/diagram/XoYMQknCLnN4AiG_/t/sortingalgorithms/b5af2e2a2462c3902697b70700706b3bb400f72cea88fc201b92409f637f7d35) <a name="sitemap"></a>   
 ![Sitemap](documentation/images/sitemap.png)
 
 <br />
@@ -71,7 +71,7 @@
 <br />
 
 ## Workgroup <a name="workgroup"></a>
-Deve-se manter a ordem de compilação do projeto como na imagem.
+Deve-se manter a ordem de compilação do projeto como na imagem. Interfaces sempre no primeiro pacote *SortInterfaces.bpl*, e a visualização no executável *Sorting.exe* que será sempre o último pacote.
 
 ![Workgroup](documentation/images/workgroup.png)
 
@@ -137,7 +137,7 @@ Para criar uma *issue* atente para o seguinte:
 
 ## Padronização de Código <a name="source"></a>
 ### Versionamento
-Para versionar esse repositório deve-se usar como base o versionamento para windows 32 bits do Ordenacao.Executavel.exe, da forma que se segue:
+Para versionar esse repositório deve-se usar como base o versionamento para windows 32 bits do Sorting.exe, da forma que se segue:
 
 ![Versionamento](documentation/images/versionamento.png)
 #### onde:
@@ -239,26 +239,72 @@ Separar declações de variáveis, métodos, construtores, destrutores e proprie
   - Interface *ISort*
   - Estruturação/Criação dos pacotes
 
++ Algoritmos
+  - Bubble Sort
+  - Insertion Sort
+  - Selection Sort
+  - Comb Sort
+
 <br />
 
 ## Árvore do Projeto <a name="arvore"></a>
 ```
-Ordenacao
+SortingAlgorithms
 ├── app
 │   └── .gitkeep
 ├── documentation
 │   └── images
-│       └── .gitkeep
+│       ├── label_issue.png
+│       ├── padrao_blocos_01.png
+│       ├── padrao_blocos_02.png
+│       ├── padrao_chamadas_01.png
+│       ├── padrao_chamadas_02.png
+│       ├── padrao_classes.png
+│       ├── padrao_identacao_01.png
+│       ├── padrao_interfaces.png
+│       ├── padrao_metodos.png
+│       ├── padrao_propriedades.png
+│       ├── padrao_variaveis_locais.png
+│       ├── padrao_variaveis_privadas.png
+│       ├── project_issue.png
+│       ├── sitemap.png
+│       ├── versionamento.png
+│       └── workgroup.png
 ├── images
 │   └── .gitkeep
 ├── modules
-│   └── .gitkeep
+│   ├── BubbleSort
+│   │   └── U_Sort.Bubble.pas
+│   ├── CombSort
+│   │   └── U_Sort.Comb.pas
+│   ├── InsertionSort
+│   │   └── U_Sort.Insertion.pas
+│   └── SelectionSort
+│       └── U_Sort.Selection.pas
 ├── output
 │   └── .gitkeep
 ├── project
-│   └── .gitkeep
+│   ├── BubbleSort.dpk
+│   ├── BubbleSort.dproj
+│   ├── CombSort.dpk
+│   ├── CombSort.dproj
+│   ├── InsertionSort.dpk
+│   ├── InsertionSort.dproj
+│   ├── SelectionSort.dpk
+│   ├── SelectionSort.dproj
+│   ├── Sorting.dpr
+│   ├── Sorting.dproj
+│   ├── SortingAlgorithms.groupproj
+│   ├── SortInterfaces.dpk
+│   └── SortInterfaces.dproj
 ├── src
-│   └── .gitkeep
+│   ├── Sorting
+│   │   ├── U_Sorting.Viewer.fmx
+│   │   └── U_Sorting.Viewer.pas
+│   └── SortInterfaces
+│       ├── U_Sort.DTO.Retangle.pas
+│       ├── U_SortClass.pas
+│       └── U_SortInterface.pas
 ├── vendor
 │   └── .gitkeep
 ├── .gitattributes

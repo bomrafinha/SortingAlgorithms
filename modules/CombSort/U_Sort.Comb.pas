@@ -1,12 +1,11 @@
-unit U_Sort_04; //Comb Sort
+unit U_Sort.Comb;
 
 interface
 
-uses U_Sort, FMX.Layouts, System.Classes, Winapi.Windows, FMX.Dialogs,
-  FMX.Objects, System.SysUtils;
+uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSort04 = class(TSort)
+  TSortComb = class(TSortClass, ISortInterface<TLayout>)
   private
     procedure sort(layout01 : TLayout);
 
@@ -16,9 +15,9 @@ type
 
 implementation
 
-{ TSort04 }
+{ TSortComb }
 
-constructor TSort04.Create(layout01: TLayout);
+constructor TSortComb.Create(layout01: TLayout);
 begin
   inherited Create(layout01);
   sleep(2000);
@@ -26,7 +25,7 @@ begin
 
 end;
 
-procedure TSort04.sort(layout01: TLayout);
+procedure TSortComb.sort(layout01: TLayout);
 var
   i, gap, tamanho : Integer;
 
