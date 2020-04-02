@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8AEB1A51-27B1-4603-84BD-F8B1A3230ADC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Ordenacao.Executavel.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Ordenacao_Executavel">
+        <MSBuild Projects="Ordenacao.Executavel.dproj"/>
+    </Target>
+    <Target Name="Ordenacao_Executavel:Clean">
+        <MSBuild Projects="Ordenacao.Executavel.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Ordenacao_Executavel:Make">
+        <MSBuild Projects="Ordenacao.Executavel.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Ordenacao_Executavel"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Ordenacao_Executavel:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Ordenacao_Executavel:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

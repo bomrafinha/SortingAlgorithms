@@ -1,0 +1,27 @@
+object Principal: TPrincipal
+  Left = 0
+  Top = 0
+  BorderStyle = ToolWindow
+  Caption = 'Fractais'
+  ClientHeight = 729
+  ClientWidth = 729
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 560
+    Top = 32
+  end
+  object Layout1: TLayout
+    Align = Client
+    Size.Width = 729.000000000000000000
+    Size.Height = 729.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+  end
+end
