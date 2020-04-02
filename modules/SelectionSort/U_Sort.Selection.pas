@@ -1,12 +1,11 @@
-unit U_Sort_03; //Selection Sort
+unit U_Sort.Selection;
 
 interface
 
-uses U_Sort, FMX.Layouts, System.Classes, Winapi.Windows, FMX.Dialogs,
-  FMX.Objects, System.SysUtils;
+uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSort03 = class(TSort)
+  TSortSelection = class(TSortClass, ISortInterface<TLayout>)
   private
     procedure sort(layout01 : TLayout);
 
@@ -16,9 +15,9 @@ type
 
 implementation
 
-{ TSort03 }
+{ TSortSelection }
 
-constructor TSort03.Create(layout01: TLayout);
+constructor TSortSelection.Create(layout01: TLayout);
 begin
   inherited Create(layout01);
   sleep(2000);
@@ -26,7 +25,7 @@ begin
 
 end;
 
-procedure TSort03.sort(layout01: TLayout);
+procedure TSortSelection.sort(layout01: TLayout);
 var
   i, j, min : Integer;
 

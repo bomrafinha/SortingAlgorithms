@@ -1,12 +1,11 @@
-unit U_Sort_01; //Bubble Sort
+unit U_Sort.Bubble;
 
 interface
 
-uses U_Sort, FMX.Layouts, System.Classes, Winapi.Windows, FMX.Dialogs,
-  FMX.Objects, System.SysUtils;
+uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSort01 = class(TSort)
+  TSortBubble = class(TSortClass, ISortInterface<TLayout>)
   private
     procedure sort(layout01 : TLayout);
 
@@ -16,9 +15,9 @@ type
 
 implementation
 
-{ TSort01 }
+{ TSortBubble }
 
-constructor TSort01.Create(layout01: TLayout);
+constructor TSortBubble.Create(layout01: TLayout);
 begin
   inherited Create(layout01);
   sleep(2000);
@@ -26,7 +25,7 @@ begin
 
 end;
 
-procedure TSort01.sort(layout01: TLayout);
+procedure TSortBubble.sort(layout01: TLayout);
 var
   i, j : Integer;
 

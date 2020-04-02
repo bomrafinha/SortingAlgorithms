@@ -1,8 +1,8 @@
-object Principal: TPrincipal
+object SortingViewer: TSortingViewer
   Left = 0
   Top = 0
   BorderStyle = ToolWindow
-  Caption = 'Fractais'
+  Caption = 'Sorting'
   ClientHeight = 729
   ClientWidth = 729
   Position = ScreenCenter

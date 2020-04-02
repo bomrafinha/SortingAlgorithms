@@ -1,12 +1,11 @@
-unit U_Sort_02; //Insertion Sort
+unit U_Sort.Insertion;
 
 interface
 
-uses U_Sort, FMX.Layouts, System.Classes, Winapi.Windows, FMX.Dialogs,
-  FMX.Objects, System.SysUtils;
+uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSort02 = class(TSort)
+  TSortInsertion = class(TSortClass, ISortInterface<TLayout>)
   private
     procedure sort(layout01 : TLayout);
 
@@ -16,9 +15,9 @@ type
 
 implementation
 
-{ TSort02 }
+{ TSortInsertion }
 
-constructor TSort02.Create(layout01: TLayout);
+constructor TSortInsertion.Create(layout01: TLayout);
 begin
   inherited Create(layout01);
   sleep(2000);
@@ -26,7 +25,7 @@ begin
 
 end;
 
-procedure TSort02.sort(layout01: TLayout);
+procedure TSortInsertion.sort(layout01: TLayout);
 var
   i, j : Integer;
   key : Single;

@@ -1,23 +1,12 @@
-unit U_Sort;
+unit U_SortClass;
 
 interface
-
 uses
-  System.UITypes, System.Generics.Collections, FMX.Objects, System.Classes,
-  FMX.Layouts, FMX.Types, FMX.Dialogs, System.SysUtils, FMX.Forms;
+  U_Sort.DTO.Retangle,
+  FMX.Layouts, System.UITypes, System.SysUtils, FMX.Forms;
 
 type
-  TRetangulo = class(TRectangle)
-  private
-    var
-      fPosicao : Integer;
-
-  public
-    property Posicao : Integer read fPosicao write fPosicao;
-
-  end;
-
-  TSort = class(TObject)
+  TSortClass = class(TInterfacedObject)
   private
     const
       fTempo : Integer = 500;
@@ -43,9 +32,9 @@ type
 
 implementation
 
-{ TSort }
+{ TSortClass }
 
-procedure TSort.colorChange(ret01, ret02 : TRetangulo);
+procedure TSortClass.colorChange(ret01, ret02 : TRetangulo);
 begin
   if ret01.Fill.Color = fCor then
   begin
@@ -58,7 +47,7 @@ begin
 
 end;
 
-constructor TSort.Create(Owner : TLayout);
+constructor TSortClass.Create(Owner : TLayout);
 begin
   inherited Create();
   fOwner := Owner;
@@ -72,7 +61,7 @@ begin
 
 end;
 
-procedure TSort.criaRetangulo(posicao, posX, altura: integer);
+procedure TSortClass.criaRetangulo(posicao, posX, altura: integer);
 var
   retangulo : TRetangulo;
 
@@ -92,12 +81,12 @@ begin
 
 end;
 
-function TSort.findRectangle(posicao: Integer): TRetangulo;
+function TSortClass.findRectangle(posicao: Integer): TRetangulo;
 begin
   Result := TRetangulo(fOwner.FindComponent('Ret' + intToStr(posicao * fLargura)));
 end;
 
-procedure TSort.preencheTela;
+procedure TSortClass.preencheTela;
 var
   posX : Integer;
   tamanho : Integer;
@@ -120,7 +109,7 @@ begin
 
 end;
 
-procedure TSort.troca(ret01, ret02 : TRetangulo);
+procedure TSortClass.troca(ret01, ret02 : TRetangulo);
 var
   aux : Single;
 
