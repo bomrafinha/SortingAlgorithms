@@ -6,10 +6,13 @@ uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
   TSortComb = class(TSortClass, ISortInterface)
+  private
+    procedure algoritmo(); Override;
+
   public
     constructor Create(layout01 : TLayout);
 
-    procedure sort(); Override;
+    procedure sort();
 
   end;
 
@@ -23,7 +26,13 @@ begin
 
 end;
 
-procedure TSortComb.sort();
+procedure TSortComb.sort;
+begin
+  inherited sort();
+
+end;
+
+procedure TSortComb.algoritmo();
 var
   i, gap, tamanho : Integer;
 

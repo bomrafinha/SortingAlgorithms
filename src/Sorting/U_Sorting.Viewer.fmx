@@ -209,7 +209,7 @@ object SortingViewer: TSortingViewer
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
-        object Button10: TButton
+        object bInsertionSort: TButton
           Align = Top
           StyledSettings = [FontColor]
           Margins.Left = 5.000000000000000000
@@ -222,11 +222,13 @@ object SortingViewer: TSortingViewer
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 5
+          Text = 'InsertionSort'
           TextSettings.Font.Family = 'Calibri'
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          OnClick = bInsertionSortClick
         end
-        object Button11: TButton
+        object bSelectionSort: TButton
           Align = Top
           StyledSettings = [FontColor]
           Margins.Left = 5.000000000000000000
@@ -239,11 +241,13 @@ object SortingViewer: TSortingViewer
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 4
+          Text = 'SelectionSort'
           TextSettings.Font.Family = 'Calibri'
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          OnClick = bSelectionSortClick
         end
-        object Button12: TButton
+        object bCombSort: TButton
           Align = Top
           StyledSettings = [FontColor]
           Margins.Left = 5.000000000000000000
@@ -256,9 +260,11 @@ object SortingViewer: TSortingViewer
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 3
+          Text = 'CombSort'
           TextSettings.Font.Family = 'Calibri'
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          OnClick = bCombSortClick
         end
         object Button13: TButton
           Align = Top

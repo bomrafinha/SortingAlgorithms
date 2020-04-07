@@ -3,7 +3,7 @@ unit U_Sorting.Viewer;
 interface
 
 uses
-  U_SortClass, U_Sort.Bubble, {U_Sort.Insertion, U_Sort.Selection, U_Sort.Comb,}
+  U_SortClass, U_Sort.Bubble, U_Sort.Insertion, U_Sort.Selection, U_Sort.Comb,
   FMX.Controls, FMX.Layouts, System.Classes, FMX.Types, FMX.Forms, System.SysUtils,
   FMX.Objects, FMX.Effects, FMX.Controls.Presentation, FMX.StdCtrls,
   FMX.Filter.Effects, System.Types;
@@ -25,9 +25,9 @@ type
     Button7: TButton;
     Button8: TButton;
     Button9: TButton;
-    Button10: TButton;
-    Button11: TButton;
-    Button12: TButton;
+    bInsertionSort: TButton;
+    bSelectionSort: TButton;
+    bCombSort: TButton;
     Button13: TButton;
     Button14: TButton;
     Button15: TButton;
@@ -36,6 +36,9 @@ type
     Rectangle1: TRectangle;
     procedure bBubbleSortClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure bInsertionSortClick(Sender: TObject);
+    procedure bSelectionSortClick(Sender: TObject);
+    procedure bCombSortClick(Sender: TObject);
   private
     var
       fSort : TSortClass;
@@ -62,6 +65,39 @@ begin
 
 end;
 
+
+procedure TSortingViewer.bCombSortClick(Sender: TObject);
+begin
+  if Assigned(fSort) then
+  begin
+    fSort.Free;
+  end;
+  fSort := TSortComb.Create(Layout5);
+  fSort.sort();
+
+end;
+
+procedure TSortingViewer.bInsertionSortClick(Sender: TObject);
+begin
+  if Assigned(fSort) then
+  begin
+    fSort.Free;
+  end;
+  fSort := TSortInsertion.Create(Layout5);
+  fSort.sort();
+
+end;
+
+procedure TSortingViewer.bSelectionSortClick(Sender: TObject);
+begin
+  if Assigned(fSort) then
+  begin
+    fSort.Free;
+  end;
+  fSort := TSortSelection.Create(Layout5);
+  fSort.sort();
+
+end;
 
 procedure TSortingViewer.FormCreate(Sender: TObject);
 var
