@@ -244,6 +244,17 @@ Dá-se preferência ao uso de iniciais minúsculas para palavras reservadas. Por
   - Insertion Sort
   - Selection Sort
   - Comb Sort
+  - Bogo Sort
+  - Merge Sort
+  - Heap Sort
+  - Shell Sort
+  - Radix Sort
+  - Gnome Sort
+  - Counting Sort
+  - Bucket Sort
+  - Cocktail Sort
+  - Tim Sort
+  - Quick Sort
 
 <br />
 
