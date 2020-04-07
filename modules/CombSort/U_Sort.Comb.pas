@@ -5,12 +5,12 @@ interface
 uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSortComb = class(TSortClass, ISortInterface<TLayout>)
-  private
-    procedure sort(layout01 : TLayout);
-
+  TSortComb = class(TSortClass, ISortInterface)
   public
     constructor Create(layout01 : TLayout);
+
+    procedure sort(); Override;
+
   end;
 
 implementation
@@ -20,12 +20,10 @@ implementation
 constructor TSortComb.Create(layout01: TLayout);
 begin
   inherited Create(layout01);
-  sleep(2000);
-  sort(layout01);
 
 end;
 
-procedure TSortComb.sort(layout01: TLayout);
+procedure TSortComb.sort();
 var
   i, gap, tamanho : Integer;
 

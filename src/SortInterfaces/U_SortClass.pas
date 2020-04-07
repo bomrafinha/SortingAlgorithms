@@ -2,14 +2,16 @@ unit U_SortClass;
 
 interface
 uses
-  U_Sort.DTO.Retangle,
-  FMX.Layouts, System.UITypes, System.SysUtils, FMX.Forms;
+  U_Sort.DTO.Retangle, U_SortInterface,
+  FMX.Layouts, System.UITypes, System.SysUtils, FMX.Forms, System.Classes;
 
 type
-  TSortClass = class(TInterfacedObject)
+  TSortClass = class(TInterfacedObject, ISortInterface)
   private
     const
       fTempo : Integer = 500;
+      fQtdRet : Integer = 50;
+
     var
       fCor : Cardinal;
       fCorBorda : Cardinal;
@@ -17,16 +19,25 @@ type
       fLargura : Integer;
       fLarguraBorda : Integer;
       fRaio : Integer;
-      fOwner : TLayout;
+
     procedure criaRetangulo(posicao, posX, altura : integer);
     procedure preencheTela();
     procedure colorChange(ret01, ret02 : TRetangulo);
 
   protected
+    var
+      fOwner : TLayout;
+
     constructor Create(Owner : TLayout);
+
+    procedure algoritmo(); Virtual; Abstract;
     procedure troca(ret01, ret02 : TRetangulo);
     function findRectangle(posicao : Integer) : TRetangulo;
+
     property Distancia : Integer read fLargura;
+
+  public
+    procedure sort();
 
   end;
 
@@ -54,9 +65,9 @@ begin
   fCor := TAlphaColors.Hotpink;
   fCorBorda := TAlphaColors.Black;
   fCorMudanca := TAlphaColors.Skyblue;
-  fLargura := 25;
   fLarguraBorda := 1;
-  fRaio := 5;
+  fLargura := trunc(Owner.Size.Width / fQtdRet);
+  fRaio := trunc(fLargura * 0.20);
   preencheTela();
 
 end;
@@ -95,17 +106,31 @@ var
 begin
   Randomize;
   posX := 0;
-  for i  := 0 to 49 do
+  for i := 1 to fQtdRet do
   begin
     repeat
       tamanho := Random(490) + 10
     until ((tamanho mod 5) = 0);
 
-    criaRetangulo(i, posX, tamanho);
+    criaRetangulo(i - 1, posX, tamanho);
     inc(posX, fLargura);
-
   end;
+
   Application.ProcessMessages;
+
+end;
+
+procedure TSortClass.sort;
+var
+  alg : TThread;
+
+begin
+  alg := TThread.CreateAnonymousThread(
+    procedure
+    begin
+      Self.algoritmo();
+    end);
+  alg.Start();
 
 end;
 
@@ -124,6 +149,9 @@ begin
     ret02.Height := aux;
     ret01.Position.Y := fOwner.Height - ret01.Height;
     ret02.Position.Y := fOwner.Height - ret02.Height;
+    ret01.Repaint;
+    ret02.Repaint;
+    fOwner.Repaint;
 
   finally
     Sleep(fTempo);

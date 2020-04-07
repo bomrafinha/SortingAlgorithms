@@ -5,12 +5,12 @@ interface
 uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSortInsertion = class(TSortClass, ISortInterface<TLayout>)
-  private
-    procedure sort(layout01 : TLayout);
-
+  TSortInsertion = class(TSortClass, ISortInterface)
   public
     constructor Create(layout01 : TLayout);
+
+    procedure sort(); Override;
+
   end;
 
 implementation
@@ -20,12 +20,10 @@ implementation
 constructor TSortInsertion.Create(layout01: TLayout);
 begin
   inherited Create(layout01);
-  sleep(2000);
-  sort(layout01);
 
 end;
 
-procedure TSortInsertion.sort(layout01: TLayout);
+procedure TSortInsertion.sort();
 var
   i, j : Integer;
   key : Single;
