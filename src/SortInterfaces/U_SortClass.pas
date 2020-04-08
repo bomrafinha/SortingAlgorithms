@@ -9,7 +9,6 @@ type
   TSortClass = class(TInterfacedObject, ISortInterface)
   private
     const
-      fTempo : Integer = 500;
       fQtdRet : Integer = 50;
 
     var
@@ -19,8 +18,12 @@ type
       fLargura : Integer;
       fLarguraBorda : Integer;
       fRaio : Integer;
+      fTempo : Integer;
+      fNomes : TStringList;
+      fFinalizado : Boolean;
 
-    procedure criaRetangulo(posicao, posX, altura : integer);
+    procedure criaRetangulo(posicao, posX, altura : integer); Overload;
+    procedure criaRetangulo(nome : String; altura : integer); Overload;
     procedure preencheTela();
     procedure colorChange(ret01, ret02 : TRetangulo);
 
@@ -28,16 +31,19 @@ type
     var
       fOwner : TLayout;
 
-    constructor Create(Owner : TLayout);
-
-    procedure algoritmo(); Virtual; Abstract;
-    procedure troca(ret01, ret02 : TRetangulo);
+    function algoritmo() : Boolean; Virtual; Abstract;
     function findRectangle(posicao : Integer) : TRetangulo;
+    function getDelay(aTempo : Single) : Integer;
+    procedure troca(ret01, ret02 : TRetangulo);
 
     property Distancia : Integer read fLargura;
 
   public
+    constructor Create(Owner : TLayout; delay : Single);
+
     procedure sort();
+
+    property Finalizado : boolean read fFinalizado write fFinalizado;
 
   end;
 
@@ -58,9 +64,18 @@ begin
 
 end;
 
-constructor TSortClass.Create(Owner : TLayout);
+constructor TSortClass.Create(Owner : TLayout; delay : Single);
+var
+  I: Integer;
+
 begin
   inherited Create();
+
+  Self.fFinalizado := False;
+
+  fNomes := TStringList.Create();
+  fNomes.Clear;
+
   fOwner := Owner;
   fCor := TAlphaColors.Hotpink;
   fCorBorda := TAlphaColors.Black;
@@ -68,7 +83,28 @@ begin
   fLarguraBorda := 1;
   fLargura := trunc(Owner.Size.Width / fQtdRet);
   fRaio := trunc(fLargura * 0.20);
+  fTempo := getDelay(delay);
+
+  for I := 0 to fOwner.ControlsCount - 1 do
+  begin
+    fNomes.Add(fOwner.Controls[I].Name);
+  end;
+
+  fNomes.SaveToFile('D:\Users\Bomrafinha\Desktop\rafinha.txt');
+
   preencheTela();
+
+end;
+
+procedure TSortClass.criaRetangulo(nome : String; altura: integer);
+var
+  ret : TRetangulo;
+
+begin
+  ret := TRetangulo(fOwner.FindComponent(nome));
+  ret.Fill.Color := fCor;
+  ret.Height := altura;
+  ret.Position.Y := fOwner.Height - altura;
 
 end;
 
@@ -86,7 +122,7 @@ begin
   retangulo.Width := fLargura;
   retangulo.XRadius := fRaio;
   retangulo.YRadius := fRaio;
-  retangulo.Name := 'Ret' + IntToStr(posX);
+  retangulo.Name := 'Ret' + posX.ToString;
   retangulo.Posicao := posicao;
   fOwner.AddObject(retangulo);
 
@@ -97,6 +133,12 @@ begin
   Result := TRetangulo(fOwner.FindComponent('Ret' + intToStr(posicao * fLargura)));
 end;
 
+function TSortClass.getDelay(aTempo: Single): Integer;
+begin
+  Result := trunc(1000 / (2 * aTempo));
+
+end;
+
 procedure TSortClass.preencheTela;
 var
   posX : Integer;
@@ -105,15 +147,29 @@ var
 
 begin
   Randomize;
-  posX := 0;
-  for i := 1 to fQtdRet do
-  begin
-    repeat
-      tamanho := Random(490) + 10
-    until ((tamanho mod 5) = 0);
 
-    criaRetangulo(i - 1, posX, tamanho);
-    inc(posX, fLargura);
+  if fNomes.Count <= 0 then
+  begin
+    posX := 0;
+    for i := 1 to fQtdRet do
+    begin
+      repeat
+        tamanho := Random(490) + 10
+      until ((tamanho mod 5) = 0);
+
+      criaRetangulo(i - 1, posX, tamanho);
+      inc(posX, fLargura);
+    end;
+  end else begin
+    for i := 0 to fNomes.Count - 1 do
+    begin
+      repeat
+        tamanho := Random(490) + 10
+      until ((tamanho mod 5) = 0);
+
+      criaRetangulo(fNomes.Strings[i], tamanho);
+    end;
+
   end;
 
   Application.ProcessMessages;
@@ -125,10 +181,11 @@ var
   alg : TThread;
 
 begin
+  Self.fFinalizado := False;
   alg := TThread.CreateAnonymousThread(
     procedure
     begin
-      Self.algoritmo();
+      Self.fFinalizado := Self.algoritmo();
     end);
   alg.Start();
 
@@ -140,9 +197,9 @@ var
 
 begin
   try
-    Sleep(fTempo);
     colorChange(ret01, ret02);
     Application.ProcessMessages;
+    Sleep(fTempo);
 
     aux := ret01.Height;
     ret01.Height := ret02.Height;

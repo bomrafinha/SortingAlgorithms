@@ -7,12 +7,7 @@ uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 type
   TSortBubble = class(TSortClass, ISortInterface)
   private
-    procedure algoritmo(); Override;
-
-  public
-    constructor Create(layout01 : TLayout);
-
-    procedure sort();
+    function algoritmo() : Boolean; Override;
 
   end;
 
@@ -20,22 +15,12 @@ implementation
 
 { TSortBubble }
 
-constructor TSortBubble.Create(layout01: TLayout);
-begin
-  inherited Create(layout01);
-
-end;
-
-procedure TSortBubble.sort;
-begin
-  inherited sort();
-end;
-
-procedure TSortBubble.algoritmo();
+function TSortBubble.algoritmo() : Boolean;
 var
   i, j : Integer;
 
 begin
+  Result := False;
   for i := 48 downto 0 do
   begin
     for j := 0 to i do
@@ -46,6 +31,8 @@ begin
       end;
     end;
   end;
+
+  Result := True;
 
 end;
 

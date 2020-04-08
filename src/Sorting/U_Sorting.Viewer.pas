@@ -5,8 +5,8 @@ interface
 uses
   U_SortClass, U_Sort.Bubble, U_Sort.Insertion, U_Sort.Selection, U_Sort.Comb,
   FMX.Controls, FMX.Layouts, System.Classes, FMX.Types, FMX.Forms, System.SysUtils,
-  FMX.Objects, FMX.Effects, FMX.Controls.Presentation, FMX.StdCtrls,
-  FMX.Filter.Effects, System.Types;
+  FMX.Objects, FMX.Effects, FMX.Controls.Presentation, FMX.StdCtrls, rtti,
+  FMX.Filter.Effects, System.Types, FMX.Edit, FMX.EditBox, FMX.SpinBox;
 
 type
   TSortingViewer = class(TForm)
@@ -34,14 +34,23 @@ type
     ShadowEffect2: TShadowEffect;
     Layout5: TLayout;
     Rectangle1: TRectangle;
+    Layout6: TLayout;
+    Label1: TLabel;
+    SpinBox1: TSpinBox;
+    Timer1: TTimer;
     procedure bBubbleSortClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure bInsertionSortClick(Sender: TObject);
     procedure bSelectionSortClick(Sender: TObject);
     procedure bCombSortClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     var
       fSort : TSortClass;
+      retorno : Boolean;
+
+    procedure sort(tipo : Integer);
+    procedure bloqueio();
 
   public
     { Public declarations }
@@ -56,46 +65,49 @@ implementation
 
 procedure TSortingViewer.bBubbleSortClick(Sender: TObject);
 begin
-  if Assigned(fSort) then
-  begin
-    fSort.Free;
-  end;
-  fSort := TSortBubble.Create(Layout5);
-  fSort.sort();
+  Text1.Text := 'SortingAlghoritms - BubbleSort';
+  Self.sort(0);
 
 end;
 
 
 procedure TSortingViewer.bCombSortClick(Sender: TObject);
 begin
-  if Assigned(fSort) then
-  begin
-    fSort.Free;
-  end;
-  fSort := TSortComb.Create(Layout5);
-  fSort.sort();
+  Text1.Text := 'SortingAlghoritms - CombSort';
+  Self.sort(3);
 
 end;
 
 procedure TSortingViewer.bInsertionSortClick(Sender: TObject);
 begin
-  if Assigned(fSort) then
+  Text1.Text := 'SortingAlghoritms - InsertionSort';
+  Self.sort(1);
+
+end;
+
+procedure TSortingViewer.bloqueio;
+var
+  I: Integer;
+  item: TControl;
+
+begin
+  Timer1.Enabled := not Timer1.Enabled;
+
+  for I := 0 to Layout4.ControlsCount - 1 do
   begin
-    fSort.Free;
+    item := Layout4.Controls[I];
+    if item.ClassType = TButton then
+    begin
+      TButton(item).Enabled := not TButton(item).Enabled;
+    end;
   end;
-  fSort := TSortInsertion.Create(Layout5);
-  fSort.sort();
 
 end;
 
 procedure TSortingViewer.bSelectionSortClick(Sender: TObject);
 begin
-  if Assigned(fSort) then
-  begin
-    fSort.Free;
-  end;
-  fSort := TSortSelection.Create(Layout5);
-  fSort.sort();
+  Text1.Text := 'SortingAlghoritms - SelectionSort';
+  Self.sort(2);
 
 end;
 
@@ -112,6 +124,35 @@ begin
   Self.Layout2.Size.Height := 50;
   Self.Layout4.Size.Width := 140;
 
+end;
+
+procedure TSortingViewer.sort(tipo : Integer);
+begin
+  ShadowEffect1.UpdateParentEffects;
+
+  if Assigned(fSort) then
+  begin
+    fSort.Free;
+  end;
+
+  case tipo of
+    0: fSort := TSortBubble.Create(Layout5, SpinBox1.Value);
+    1: fSort := TSortInsertion.Create(Layout5, SpinBox1.Value);
+    2: fSort := TSortSelection.Create(Layout5, SpinBox1.Value);
+    3: fSort := TSortComb.Create(Layout5, SpinBox1.Value);
+  end;
+
+  Self.bloqueio();
+
+  fSort.sort();
+end;
+
+procedure TSortingViewer.Timer1Timer(Sender: TObject);
+begin
+  if fSort.Finalizado then
+  begin
+    Self.bloqueio();
+  end;
 end;
 
 end.

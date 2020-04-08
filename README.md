@@ -5,7 +5,7 @@
 <br />
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2020)
-![Build](https://img.shields.io/badge/Build-1.0.0.0-brightgreen) 
+![Build](https://img.shields.io/badge/Build-1.4.4.118-brightgreen) 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bomrafinha/SortingAlgorithms)
 ![GitHub Release Date](https://img.shields.io/github/release-date/bomrafinha/SortingAlgorithms)
 ![Github repo age](https://img.shields.io/github/issues/detail/age/bomrafinha/SortingAlgorithms/1.svg?style=flat-square)
@@ -182,7 +182,7 @@ A declaração de métodos deve ocorrer sempre dentro dos modificadores de acess
 
 Métodos devem ser *camelCase*.
 
-Os parâmetros do método devem ser *camelCase*.
+Os parâmetros do método devem ser *camelCase* iniciando com "a".
 
 Procurar, quando possível, usar prefixos *get*, *set*, *eh*, etc de acordo com a função do método e/ou seu retorno.
 
@@ -225,6 +225,12 @@ Separar declações de variáveis, métodos, construtores, destrutores e proprie
 
 ![Identação](documentation/images/padrao_identacao_01.png)
 
+#### Chamada de métodos e variaveis internas da classe
+
+Devem ser precedidas da palavra reservada *Self*, para facilitar a leitura do código.
+
+![Self](documentation/images/padrao_self_01.png)
+
 #### Palavras Reservadas
 Dá-se preferência ao uso de iniciais minúsculas para palavras reservadas. Porém isso não é uma regra para o projeto tendo em vista que por serem reservadas a IDE às sinaliza, não atrapalhando, assim, a leitura do código.
 
@@ -240,10 +246,6 @@ Dá-se preferência ao uso de iniciais minúsculas para palavras reservadas. Por
 + Estrutura básica do código
 
 + Algoritmos
-  - Bubble Sort
-  - Insertion Sort
-  - Selection Sort
-  - Comb Sort
   - Bogo Sort
   - Merge Sort
   - Heap Sort
@@ -275,6 +277,7 @@ SortingAlgorithms
 │       ├── padrao_interfaces.png
 │       ├── padrao_metodos.png
 │       ├── padrao_propriedades.png
+│       ├── padrao_self_01.png
 │       ├── padrao_variaveis_locais.png
 │       ├── padrao_variaveis_privadas.png
 │       ├── project_issue.png

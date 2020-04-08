@@ -7,12 +7,7 @@ uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 type
   TSortComb = class(TSortClass, ISortInterface)
   private
-    procedure algoritmo(); Override;
-
-  public
-    constructor Create(layout01 : TLayout);
-
-    procedure sort();
+    function algoritmo() : Boolean; Override;
 
   end;
 
@@ -20,23 +15,12 @@ implementation
 
 { TSortComb }
 
-constructor TSortComb.Create(layout01: TLayout);
-begin
-  inherited Create(layout01);
-
-end;
-
-procedure TSortComb.sort;
-begin
-  inherited sort();
-
-end;
-
-procedure TSortComb.algoritmo();
+function TSortComb.algoritmo() : Boolean;
 var
   i, gap, tamanho : Integer;
 
 begin
+  Result := False;
   tamanho := 50;
   gap := trunc(tamanho / 1.3);
   while ((gap > 0) and  (i <> tamanho - 1)) do
@@ -52,6 +36,7 @@ begin
     end;
     gap := Trunc(gap / 1.3);
   end;
+  Result := True;
 
 end;
 

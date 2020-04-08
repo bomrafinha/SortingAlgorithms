@@ -7,12 +7,7 @@ uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 type
   TSortSelection = class(TSortClass, ISortInterface)
   private
-    procedure algoritmo(); Override;
-
-  public
-    constructor Create(layout01 : TLayout);
-
-    procedure sort();
+    function algoritmo() : Boolean; Override;
 
   end;
 
@@ -20,23 +15,12 @@ implementation
 
 { TSortSelection }
 
-constructor TSortSelection.Create(layout01: TLayout);
-begin
-  inherited Create(layout01);
-
-end;
-
-procedure TSortSelection.sort;
-begin
-  inherited sort();
-
-end;
-
-procedure TSortSelection.algoritmo();
+function TSortSelection.algoritmo() : Boolean;
 var
   i, j, min : Integer;
 
 begin
+  Result := False;
   for i := 0 to 48 do
   begin
     min := i;
@@ -49,6 +33,7 @@ begin
     end;
     troca(findRectangle(min), findRectangle(i));
   end;
+  Result := True;
 end;
 
 end.
