@@ -5,31 +5,22 @@ interface
 uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSortComb = class(TSortClass, ISortInterface<TLayout>)
+  TSortComb = class(TSortClass, ISortInterface)
   private
-    procedure sort(layout01 : TLayout);
+    function algoritmo() : Boolean; Override;
 
-  public
-    constructor Create(layout01 : TLayout);
   end;
 
 implementation
 
 { TSortComb }
 
-constructor TSortComb.Create(layout01: TLayout);
-begin
-  inherited Create(layout01);
-  sleep(2000);
-  sort(layout01);
-
-end;
-
-procedure TSortComb.sort(layout01: TLayout);
+function TSortComb.algoritmo() : Boolean;
 var
   i, gap, tamanho : Integer;
 
 begin
+  Result := False;
   tamanho := 50;
   gap := trunc(tamanho / 1.3);
   while ((gap > 0) and  (i <> tamanho - 1)) do
@@ -45,6 +36,7 @@ begin
     end;
     gap := Trunc(gap / 1.3);
   end;
+  Result := True;
 
 end;
 

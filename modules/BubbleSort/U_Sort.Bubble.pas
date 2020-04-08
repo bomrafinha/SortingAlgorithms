@@ -5,31 +5,22 @@ interface
 uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSortBubble = class(TSortClass, ISortInterface<TLayout>)
+  TSortBubble = class(TSortClass, ISortInterface)
   private
-    procedure sort(layout01 : TLayout);
+    function algoritmo() : Boolean; Override;
 
-  public
-    constructor Create(layout01 : TLayout);
   end;
 
 implementation
 
 { TSortBubble }
 
-constructor TSortBubble.Create(layout01: TLayout);
-begin
-  inherited Create(layout01);
-  sleep(2000);
-  sort(layout01);
-
-end;
-
-procedure TSortBubble.sort(layout01: TLayout);
+function TSortBubble.algoritmo() : Boolean;
 var
   i, j : Integer;
 
 begin
+  Result := False;
   for i := 48 downto 0 do
   begin
     for j := 0 to i do
@@ -40,6 +31,8 @@ begin
       end;
     end;
   end;
+
+  Result := True;
 
 end;
 

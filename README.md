@@ -5,7 +5,7 @@
 <br />
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2020)
-![Build](https://img.shields.io/badge/Build-1.0.0.0-brightgreen) 
+![Build](https://img.shields.io/badge/Build-1.4.4.118-brightgreen) 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bomrafinha/SortingAlgorithms)
 ![GitHub Release Date](https://img.shields.io/github/release-date/bomrafinha/SortingAlgorithms)
 ![Github repo age](https://img.shields.io/github/issues/detail/age/bomrafinha/SortingAlgorithms/1.svg?style=flat-square)
@@ -154,10 +154,10 @@ Os *releases* do repositório serão feitos a cada vez que um módulo estiver 10
 <br />
 
 ### Padrões adotados no projeto
-Para um melhor entendimento do projeto foi-se adotado alguns padrões que facilitam a identificação de cada estrutura usada. São, basicamente, o uso de *camelcase*, com variações nas iniciais;
+Para um melhor entendimento do projeto foi-se adotado alguns padrões que facilitam a identificação de cada estrutura usada. São, basicamente, o uso de *camelCase*, e *PascalCase*;
 
 #### Variáveis de método
-Variáveis locais devem ser *camelcase* iniciando em minúsculo.
+Variáveis locais devem ser *camelCase*.
 
 Observar o espaçamento entre a declaração de variáveis e o inicio do método.
 
@@ -166,12 +166,12 @@ Observar o espaçamento entre a declaração de variáveis e o inicio do método
 #### Variáveis privadas
 A declaração de váriaveis privadas deve ocorrer sempre dentro dos modificadores de acesso. 
 
-Devem começar sempre com "f" minúsculo, seguido por seu nome em *camelcase* com a inicial em maiúsculo.
+Devem ser *camelCase* começando sempre com "f" seguido por seu nome.
 
 ![Variáveis privadas](documentation/images/padrao_variaveis_privadas.png)
 
 #### Propriedades
-Propriedades devem usar *camelcase* começando sempre com a inicial em maiúsculo.
+Propriedades devem usar *PascalCase*.
 
 Devem ter exatamente o nome de sua variável privada e/ou metodo de acesso, eliminando apenas o prefixo (f, get, set).
 
@@ -180,21 +180,23 @@ Devem ter exatamente o nome de sua variável privada e/ou metodo de acesso, elim
 #### Métodos
 A declaração de métodos deve ocorrer sempre dentro dos modificadores de acesso. 
 
-Métodos devem ser *camelcase* iniciando em minúsculo.
+Métodos devem ser *camelCase*.
 
-Os parâmetros do método devem ser *camelcase* iniciando em minúsculo.
+Os parâmetros do método devem ser *camelCase* iniciando com "a".
 
 Procurar, quando possível, usar prefixos *get*, *set*, *eh*, etc de acordo com a função do método e/ou seu retorno.
+
+Ao serem chamados usar sempre parentesis em sua chamada, mesmo quando sem parâmetros. Ex: meuMetodo();
 
 ![Métodos](documentation/images/padrao_metodos.png)
 
 #### Interfaces
-Interfaces devem começar sempre com a letra "I" (maiúsculo), seguido por seu nome em *camelcase* com a inicial em maiúsculo também.
+Interfaces devem começar sempre com a letra "I" (maiúsculo), seguido por seu nome em *PascalCase*.
 
 ![Interfaces](documentation/images/padrao_interfaces.png)
 
 #### Classes
-Classes devem começar sempre com a letra "T" (maiúsculo), seguido por seu nome em *camelcase* com a inicial em maiúsculo também.
+Classes devem começar sempre com a letra "T" (maiúsculo), seguido por seu nome em *PascalCase*.
 
 Classes que não extendem nenhuma outra classes em específico devem extender *TInterfacedObject*.
 
@@ -223,6 +225,15 @@ Separar declações de variáveis, métodos, construtores, destrutores e proprie
 
 ![Identação](documentation/images/padrao_identacao_01.png)
 
+#### Chamada de métodos e variaveis internas da classe
+
+Devem ser precedidas da palavra reservada *Self*, para facilitar a leitura do código.
+
+![Self](documentation/images/padrao_self_01.png)
+
+#### Palavras Reservadas
+Dá-se preferência ao uso de iniciais minúsculas para palavras reservadas. Porém isso não é uma regra para o projeto tendo em vista que por serem reservadas a IDE às sinaliza, não atrapalhando, assim, a leitura do código.
+
 #### Um código bem padronizado é muito mais fácil de ler, mesmo por programadores que utilizam outras linguagens.
 
 <br />
@@ -235,10 +246,17 @@ Separar declações de variáveis, métodos, construtores, destrutores e proprie
 + Estrutura básica do código
 
 + Algoritmos
-  - Bubble Sort
-  - Insertion Sort
-  - Selection Sort
-  - Comb Sort
+  - Bogo Sort
+  - Merge Sort
+  - Heap Sort
+  - Shell Sort
+  - Radix Sort
+  - Gnome Sort
+  - Counting Sort
+  - Bucket Sort
+  - Cocktail Sort
+  - Tim Sort
+  - Quick Sort
 
 <br />
 
@@ -259,6 +277,7 @@ SortingAlgorithms
 │       ├── padrao_interfaces.png
 │       ├── padrao_metodos.png
 │       ├── padrao_propriedades.png
+│       ├── padrao_self_01.png
 │       ├── padrao_variaveis_locais.png
 │       ├── padrao_variaveis_privadas.png
 │       ├── project_issue.png

@@ -5,32 +5,23 @@ interface
 uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSortInsertion = class(TSortClass, ISortInterface<TLayout>)
+  TSortInsertion = class(TSortClass, ISortInterface)
   private
-    procedure sort(layout01 : TLayout);
+    function algoritmo() : Boolean; Override;
 
-  public
-    constructor Create(layout01 : TLayout);
   end;
 
 implementation
 
 { TSortInsertion }
 
-constructor TSortInsertion.Create(layout01: TLayout);
-begin
-  inherited Create(layout01);
-  sleep(2000);
-  sort(layout01);
-
-end;
-
-procedure TSortInsertion.sort(layout01: TLayout);
+function TSortInsertion.algoritmo() : Boolean;
 var
   i, j : Integer;
   key : Single;
 
 begin
+  Result := False;
   for j := 1 to 49 do
   begin
     key := findRectangle(j).Height;
@@ -44,6 +35,7 @@ begin
 
     end;
   end;
+  Result := True;
 end;
 
 end.

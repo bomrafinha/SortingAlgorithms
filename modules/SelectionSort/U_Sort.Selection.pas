@@ -5,31 +5,22 @@ interface
 uses U_SortClass, U_SortInterface, FMX.Layouts, System.SysUtils;
 
 type
-  TSortSelection = class(TSortClass, ISortInterface<TLayout>)
+  TSortSelection = class(TSortClass, ISortInterface)
   private
-    procedure sort(layout01 : TLayout);
+    function algoritmo() : Boolean; Override;
 
-  public
-    constructor Create(layout01 : TLayout);
   end;
 
 implementation
 
 { TSortSelection }
 
-constructor TSortSelection.Create(layout01: TLayout);
-begin
-  inherited Create(layout01);
-  sleep(2000);
-  sort(layout01);
-
-end;
-
-procedure TSortSelection.sort(layout01: TLayout);
+function TSortSelection.algoritmo() : Boolean;
 var
   i, j, min : Integer;
 
 begin
+  Result := False;
   for i := 0 to 48 do
   begin
     min := i;
@@ -42,6 +33,7 @@ begin
     end;
     troca(findRectangle(min), findRectangle(i));
   end;
+  Result := True;
 end;
 
 end.
