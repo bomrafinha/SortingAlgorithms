@@ -90,8 +90,6 @@ begin
     fNomes.Add(fOwner.Controls[I].Name);
   end;
 
-  fNomes.SaveToFile('D:\Users\Bomrafinha\Desktop\rafinha.txt');
-
   preencheTela();
 
 end;
