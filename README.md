@@ -33,7 +33,7 @@
 
 *******
 ## Índice
- 1. [Uso](#uso)
+ 1. [Vídeos](#videos)
  2. [Sitemap](#sitemap)
  3. [Estrutura](#estrutura)
  4. [Workgroup](#workgroup)
@@ -49,7 +49,15 @@
 
 <br />
 
-## Uso <a name="uso"></a>
+## Vídeos <a name="videos"></a>
+<ul>
+  <li><a href="https://youtu.be/CJ5_oOdfApg" target="_blank">Bubble Sort</a></li>
+  <li><a href="https://youtu.be/onlj61P5Dco" target="_blank">Insertion Sort</a></li>
+  <li><a href="https://youtu.be/BRCXEt0fnOc" target="_blank">Selection Sort</a></li>
+  <li><a href="https://youtu.be/7D2cNB4vPc4" target="_blank">Comb Sort</a></li>
+</ul>
+
+### Fórum: https://bomrafinha.dev/category/delphi/sortingalgorithms/
 
 <br />
  
