@@ -234,6 +234,13 @@ Devem ser precedidas da palavra reservada *Self*, para facilitar a leitura do c�
 #### Palavras Reservadas
 Dá-se preferência ao uso de iniciais minúsculas para palavras reservadas. Porém isso não é uma regra para o projeto tendo em vista que por serem reservadas a IDE às sinaliza, não atrapalhando, assim, a leitura do código.
 
+#### Nomenclatura dos Arquivos
+Deve-se nomear os arquivos começando-se com *U_*.
+
+Para uma melhor localização dos arquivos no gerenciador de arquivos, e das unidades dentro do Delphi, devemos montar o nome dos arquivos compondo-os de seus módulos, submódulos, e função final, todos separados por ponto. Como segue na imagem a seguir:
+
+![Nomenclatura Arquivos](documentation/images/nomenclatura.png)
+
 #### Um código bem padronizado é muito mais fácil de ler, mesmo por programadores que utilizam outras linguagens.
 
 <br />
