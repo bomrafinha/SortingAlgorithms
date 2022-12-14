@@ -4,7 +4,7 @@
 
 <br />
 
-![Maintenance](https://img.shields.io/maintenance/yes/2020)
+![Maintenance](https://img.shields.io/maintenance/yes/2023)
 ![Build](https://img.shields.io/badge/Build-1.4.4.119-brightgreen) 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bomrafinha/SortingAlgorithms)
 ![GitHub Release Date](https://img.shields.io/github/release-date/bomrafinha/SortingAlgorithms)
